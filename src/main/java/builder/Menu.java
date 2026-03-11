@@ -5,7 +5,7 @@ public class Menu {
     private String starter, mainCourse, dessert, coffe, drink, supplement;
     private boolean vegan, glutenFree;
 
-    private Menu() {
+    public Menu() {
     }
 
     public String getStarter() {
@@ -38,6 +38,38 @@ public class Menu {
 
     public String getSupplement() {
         return supplement;
+    }
+
+    public void setStarter(String starter) {
+        this.starter = starter;
+    }
+
+    public void setMainCourse(String mainCourse) {
+        this.mainCourse = mainCourse;
+    }
+
+    public void setDessert(String dessert) {
+        this.dessert = dessert;
+    }
+
+    public void setCoffe(String coffe) {
+        this.coffe = coffe;
+    }
+
+    public void setDrink(String drink) {
+        this.drink = drink;
+    }
+
+    public void setSupplement(String supplement) {
+        this.supplement = supplement;
+    }
+
+    public void setVegan(boolean vegan) {
+        this.vegan = vegan;
+    }
+
+    public void setGlutenFree(boolean glutenFree) {
+        this.glutenFree = glutenFree;
     }
 
     @Override
