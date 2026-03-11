@@ -1,5 +1,6 @@
-# 📦 S3.03 — Design Patterns II
-## 🎯 Project Goal & Overview
+# S3.03 — Design Patterns II
+
+## Project Goal & Overview
 The goal of this project is to practice advanced **Design Patterns** and **Unit Testing** in Java through hands-on exercises.
 This repository covers the implementation of three creational and behavioral design patterns, focused on:
 - applying patterns to real-world scenarios
@@ -8,8 +9,8 @@ This repository covers the implementation of three creational and behavioral des
 
 ---
 
-## 🧩 LEVEL 1 — Builder Pattern
-### 📌 Exercise 1 — Restaurant Menu Construction System
+## LEVEL 1 — Builder Pattern
+### Exercise 1 — Restaurant Menu Construction System
 
 The **Builder** pattern (Fluent + Progressive Interface) allows building complex objects step by step, enforcing a logical construction order and preventing invalid combinations at compile time.
 
@@ -20,7 +21,7 @@ The system must:
 - support multiple menu types: Full Menu, Half Menu (Main + Drink), Kids Menu (Main + Dessert + Drink)
 - allow fluent configuration of dishes: `isVegan()`, `isGlutenFree()`, `withSupplement()`
 
-#### 🔄 Progressive Interface Flow
+#### Progressive Interface Flow
 ```
 new MenuBuilder()
 ├── withStarter()  → isVegan() / isGlutenFree()
@@ -35,7 +36,7 @@ withDrink() OR (skip)
 build()
 ```
 
-#### 🧪 Example Usage
+#### Example Usage
 ```java
 Menu executiveMenu = new MenuBuilder()
     .withStarter("Amanida Mediterrània")
@@ -61,16 +62,16 @@ Menu halfMenu = new MenuBuilder()
     .build();
 ```
 
-#### 🧪 Unit Tests
-- **🍽️ Executive Menu Test**: Verifies starter, main course, dessert and drink are correctly set, including vegan and gluten-free flags
-- **👶 Kids Menu Test**: Validates a menu without starter builds correctly with main course, dessert and drink
-- **🥗 Half Menu Test**: Ensures a menu with coffee and no dessert builds correctly with vegan flag on main course
-- **🚫 Mutual Exclusion**: Compile-time guarantee that dessert and coffee cannot both be chosen
+#### Unit Tests
+- **Executive Menu Test**: Verifies starter, main course, dessert and drink are correctly set, including vegan and gluten-free flags
+- **Kids Menu Test**: Validates a menu without starter builds correctly with main course, dessert and drink
+- **Half Menu Test**: Ensures a menu with coffee and no dessert builds correctly with vegan flag on main course
+- **Mutual Exclusion**: Compile-time guarantee that dessert and coffee cannot both be chosen
 
 ---
 
-## 🛠 Technologies
-- ☕ Java 21
-- 🧪 JUnit 5
-- 🏗️ Maven
-- 🐙 Git & GitHub
+## Technologies
+- Java 21
+- JUnit 5
+- Maven
+- Git & GitHub
