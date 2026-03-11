@@ -1,5 +1,7 @@
 package builder;
 
+import builder.model.Menu;
+
 public class Main {
     public static void main(String[] args) {
         Menu executiveMenu = new MenuBuilder()

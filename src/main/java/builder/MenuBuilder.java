@@ -1,5 +1,13 @@
 package builder;
 
+import builder.config.IMainCourseConfig;
+import builder.config.IStarterConfig;
+import builder.model.Menu;
+import builder.steps.IAfterMainStep;
+import builder.steps.IMainCourseStep;
+import builder.steps.IMenuBuildStep;
+import builder.steps.IStarterStep;
+
 public class MenuBuilder implements
         IStarterStep, IStarterConfig, IMainCourseStep,
         IMainCourseConfig, IAfterMainStep, IMenuBuildStep {

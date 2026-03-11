@@ -1,4 +1,4 @@
-package builder;
+package builder.steps;
 
 public interface IDrinkStep {
 

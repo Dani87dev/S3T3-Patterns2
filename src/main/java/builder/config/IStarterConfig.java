@@ -1,4 +1,6 @@
-package builder;
+package builder.config;
+
+import builder.steps.IMainCourseStep;
 
 public interface IStarterConfig extends IMainCourseStep {
     IStarterConfig isVegan();
