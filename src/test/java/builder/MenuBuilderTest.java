@@ -40,5 +40,20 @@ class MenuBuilderTest {
         assertEquals("Suc de taronja", menu.getDrink());
     }
 
-    
+    @Test
+    void testHalfMenu() {
+        Menu menu = new MenuBuilder()
+                .withMainCourse("Risotto de bolets")
+                .isVegan()
+                .withCoffee("Espresso")
+                .withDrink("Aigua")
+                .build();
+
+        assertNull(menu.getStarter());
+        assertNull(menu.getDessert());
+        assertEquals("Espresso", menu.getCoffe());
+        assertTrue(menu.isVegan());
+    }
+
+
 }
