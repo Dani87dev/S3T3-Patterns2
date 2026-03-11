@@ -52,7 +52,7 @@ public class Menu {
         this.dessert = dessert;
     }
 
-    public void setCoffe(String coffe) {
+    public void setCoffee(String coffe) {
         this.coffe = coffe;
     }
 
@@ -80,4 +80,6 @@ public class Menu {
                 " - Dessert: " + (this.getDessert() != null ?  this.getDessert() : " no dessert ordered") + "\n" +
                 " - Drink: " + (this.getDrink() != null ?  this.getDrink() : " no drink ordered") + "\n";
     }
+
+
 }

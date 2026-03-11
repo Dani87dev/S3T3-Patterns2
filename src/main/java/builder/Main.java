@@ -1,16 +1,32 @@
 package builder;
 
 public class Main {
-
-    public static void main(String[] args){
-
-        Menu menu = new MenuBuilder()
-                .withStarter("Patates Braves")
-                .withMainCourse("Pop a la gallega")
-                .withDrink("Kombucha de llimona i gingebre")
+    public static void main(String[] args) {
+        Menu executiveMenu = new MenuBuilder()
+                .withStarter("Amanida Mediterrània")
+                .isVegan()
+                .isGlutenFree()
+                .withMainCourse("Filet de Vedella")
+                .withSupplement("Guarnició extra")
+                .withDessert("Mousse de xocolata")
+                .withDrink("Vi Negre")
                 .build();
 
-        System.out.println(menu);
+        Menu kidsMenu = new MenuBuilder()
+                .withMainCourse("Macarrons amb tomàquet")
+                .withDessert("Gelat de Vainilla")
+                .withDrink("Suc de taronja")
+                .build();
 
+        Menu halfMenu = new MenuBuilder()
+                .withMainCourse("Risotto de bolets")
+                .isVegan()
+                .withCoffee("Espresso")
+                .withDrink("Aigua")
+                .build();
+
+        System.out.println(executiveMenu);
+        System.out.println(kidsMenu);
+        System.out.println(halfMenu);
     }
 }

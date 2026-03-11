@@ -1,47 +1,62 @@
 package builder;
 
-// La classe implementa TOTES les interfícies per poder "disfressar-se" de qualsevol pas
-public class MenuBuilder implements IStarterStep, IMainCourseStep, IAfterMainStep, IDrinkStep, IMenuBuildStep {
+public class MenuBuilder implements
+        IStarterStep, IStarterConfig, IMainCourseStep,
+        IMainCourseConfig, IAfterMainStep, IMenuBuildStep {
 
-    private Menu menu = new Menu(); // L'objecte que anem omplint
+    private Menu menu = new Menu();
 
-    // Inici del flux: podem triar entrant o anar al principal
     @Override
-    public IMainCourseStep withStarter(String name) {
+    public IStarterConfig withStarter(String name) {
         this.menu.setStarter(name);
-        return this; // Retornem el builder com a IMainCourseStep
+        return this;
     }
 
     @Override
-    public IAfterMainStep withMainCourse(String name) {
+    public IMainCourseConfig withMainCourse(String name) {
         this.menu.setMainCourse(name);
-        return this; // Saltem a l'habitació de postres/cafè/beguda
+        return this;
     }
 
-    // Gestió de Postres o Cafè
+    // Aquests mètodes ara retornen "MenuBuilder", que és compatible amb totes les interfícies
     @Override
-    public IDrinkStep withDessert(String name) {
+    public MenuBuilder isVegan() {
+        this.menu.setVegan(true);
+        return this;
+    }
+
+    @Override
+    public MenuBuilder isGlutenFree() {
+        this.menu.setGlutenFree(true);
+        return this;
+    }
+
+    @Override
+    public MenuBuilder withSupplement(String supplement) {
+        this.menu.setSupplement(supplement);
+        return this;
+    }
+
+    @Override
+    public MenuBuilder withDessert(String name) {
         this.menu.setDessert(name);
-        return this; // Ens porta a la beguda, ja no podem triar cafè
+        return this;
     }
 
     @Override
-    public IDrinkStep withCoffee(String name) {
-        this.menu.setCoffe(name);
-        return this; // Ens porta a la beguda, ja no podem triar postres
+    public MenuBuilder withCoffee(String name) {
+        this.menu.setCoffee(name);
+        return this;
     }
 
-    // Pas de la beguda
     @Override
-    public IMenuBuildStep withDrink(String drinkName) {
+    public MenuBuilder withDrink(String drinkName) {
         this.menu.setDrink(drinkName);
-        return this; // Ens porta al botó final de Build
+        return this;
     }
 
-    // Mètode final
     @Override
     public Menu build() {
         return this.menu;
     }
-
 }

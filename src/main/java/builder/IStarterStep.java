@@ -1,8 +1,6 @@
 package builder;
 
 public interface IStarterStep {
-    // Si trio entrant, em porta a les opcions del principal
-    IMainCourseStep withStarter(String name);
-
-
+    IStarterConfig withStarter(String name);
+    IMainCourseConfig withMainCourse(String name); // Para el medio menú
 }
