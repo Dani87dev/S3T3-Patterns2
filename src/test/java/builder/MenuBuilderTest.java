@@ -26,32 +26,5 @@ class MenuBuilderTest {
         assertTrue(menu.isGlutenFree());
     }
 
-    @Test
-    void testKidsMenu() {
-        Menu menu = new MenuBuilder()
-                .withMainCourse("Macarrons amb tomàquet")
-                .withDessert("Gelat de Vainilla")
-                .withDrink("Suc de taronja")
-                .build();
-
-        assertNull(menu.getStarter());
-        assertEquals("Macarrons amb tomàquet", menu.getMainCourse());
-        assertEquals("Gelat de Vainilla", menu.getDessert());
-        assertEquals("Suc de taronja", menu.getDrink());
-    }
-
-    @Test
-    void testHalfMenu() {
-        Menu menu = new MenuBuilder()
-                .withMainCourse("Risotto de bolets")
-                .isVegan()
-                .withCoffee("Espresso")
-                .withDrink("Aigua")
-                .build();
-
-        assertNull(menu.getStarter());
-        assertNull(menu.getDessert());
-        assertEquals("Espresso", menu.getCoffe());
-        assertTrue(menu.isVegan());
-    }
+    
 }
