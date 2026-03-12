@@ -26,7 +26,6 @@ public class MenuBuilder implements
         return this;
     }
 
-    // Aquests mètodes ara retornen "MenuBuilder", que és compatible amb totes les interfícies
     @Override
     public MenuBuilder isVegan() {
         this.menu.setVegan(true);
