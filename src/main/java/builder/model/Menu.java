@@ -2,7 +2,7 @@ package builder.model;
 
 public class Menu {
 
-    private String starter, mainCourse, dessert, coffe, drink, supplement;
+    private String starter, mainCourse, dessert, coffee, drink, supplement;
     private boolean vegan, glutenFree;
 
     public Menu() {
@@ -21,7 +21,7 @@ public class Menu {
     }
 
     public String getCoffe() {
-        return coffe;
+        return coffee;
     }
 
     public String getDrink() {
@@ -52,8 +52,8 @@ public class Menu {
         this.dessert = dessert;
     }
 
-    public void setCoffee(String coffe) {
-        this.coffe = coffe;
+    public void setCoffee(String coffee) {
+        this.coffee = coffee;
     }
 
     public void setDrink(String drink) {
