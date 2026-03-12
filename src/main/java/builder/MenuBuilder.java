@@ -1,69 +1,54 @@
 package builder;
 
-import builder.config.IMainCourseConfig;
-import builder.config.IStarterConfig;
+
+import builder.interfaces.IBeguda;
+import builder.interfaces.IEntrant;
+import builder.interfaces.IPostre;
+import builder.interfaces.IPrincipal;
 import builder.model.Menu;
-import builder.steps.IAfterMainStep;
-import builder.steps.IMainCourseStep;
-import builder.steps.IMenuBuildStep;
-import builder.steps.IStarterStep;
+
 
 public class MenuBuilder implements
-        IStarterStep, IStarterConfig, IMainCourseStep,
-        IMainCourseConfig, IAfterMainStep, IMenuBuildStep {
+        IEntrant, IPrincipal, IPostre, IBeguda {
 
     private Menu menu = new Menu();
 
+
     @Override
-    public IStarterConfig withStarter(String name) {
-        this.menu.setStarter(name);
+    public IEntrant withStarter(String starter) {
+        menu.setStarter(starter);
         return this;
     }
 
     @Override
-    public IMainCourseConfig withMainCourse(String name) {
-        this.menu.setMainCourse(name);
+    public IPrincipal withMainCourse(String mainCourse){
+        menu.setMainCourse(mainCourse);
         return this;
     }
 
     @Override
-    public MenuBuilder isVegan() {
-        this.menu.setVegan(true);
+    public MenuBuilder isVegan(){
+        menu.setVegan(true);
         return this;
     }
 
     @Override
-    public MenuBuilder isGlutenFree() {
-        this.menu.setGlutenFree(true);
+    public  MenuBuilder isGlutenFree(){
+        menu.setGlutenFree(true);
         return this;
     }
 
     @Override
-    public MenuBuilder withSupplement(String supplement) {
-        this.menu.setSupplement(supplement);
+    public MenuBuilder withSupplement(String supplement){
+        menu.setSupplement(supplement);
         return this;
     }
 
     @Override
-    public MenuBuilder withDessert(String name) {
-        this.menu.setDessert(name);
+    public IPostre withDessert(String dessert){
+        menu.setDessert(dessert);
         return this;
     }
 
-    @Override
-    public MenuBuilder withCoffee(String name) {
-        this.menu.setCoffee(name);
-        return this;
-    }
 
-    @Override
-    public MenuBuilder withDrink(String drinkName) {
-        this.menu.setDrink(drinkName);
-        return this;
-    }
-
-    @Override
-    public Menu build() {
-        return this.menu;
-    }
 }
