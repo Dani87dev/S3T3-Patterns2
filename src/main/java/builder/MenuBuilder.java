@@ -50,5 +50,22 @@ public class MenuBuilder implements
         return this;
     }
 
+    @Override
+    public IPostre withCoffee(String coffee){
+        menu.setCoffee(coffee);
+        return this;
+    }
+
+    @Override
+    public MenuBuilder withDrink(String drink){
+        menu.setDrink(drink);
+        return this;
+    }
+
+    @Override
+    public Menu build(){
+        return menu;
+    }
+
 
 }
