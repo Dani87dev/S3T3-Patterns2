@@ -23,17 +23,38 @@ The system must:
 
 #### Progressive Interface Flow
 ```
+withStarter() → devuelve IStarterConfig
+    → solo ves: isVegan(), isGlutenFree(), withMainCourse()
+    → NO ves: withDessert(), build(), withDrink()
+```
+
+---
+
+## The complete flow visualized
+```
 new MenuBuilder()
-├── withStarter()  → isVegan() / isGlutenFree()
-└── (skip)
-        ↓
-withMainCourse()   → isVegan() / isGlutenFree() / withSupplement()
-        ↓
-withDessert() OR withCoffee() OR (skip)
-        ↓
-withDrink() OR (skip)
-        ↓
-build()
+    │
+    ▼ IStarterStep
+withStarter("Amanida")
+    │
+    ▼ IStarterConfig  ← puedes configurar el starter
+isVegan()
+isGlutenFree()
+    │
+    ▼ IMainCourseStep (heredado por IStarterConfig)
+withMainCourse("Filet")
+    │
+    ▼ IMainCourseConfig  ← puedes configurar el plato
+withSupplement("Guarnició")
+    │
+    ▼ IAfterMainStep (heredado por IMainCourseConfig)
+withDessert("Mousse")
+    │
+    ▼ IMenuBuildStep
+withDrink("Vi Negre")
+    │
+    ▼
+build() → Menu ✅
 ```
 
 #### Example Usage
