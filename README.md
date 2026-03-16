@@ -120,6 +120,45 @@ agent.stockMarketDown(145.50);
 
 ---
 
+## LEVEL 3 — Decorator Pattern
+### Exercise 3 — Bubble Tea Customization System
+The **Decorator** pattern allows adding extra functionality to an object dynamically, without modifying its original class. Instead of creating subclasses for every combination, decorators wrap the original object and layer behaviour on top.
+The system must:
+- support multiple base drinks: `LatteBase`, `MatchaBase`, `TeaBase`
+- allow dynamic composition of add-ons: `Ice`, `Sugar`, `Tapioca`, `Flavor`
+- accumulate cost and description with each decorator added
+- support adding the same decorator multiple times (e.g. two different flavors)
+
+#### Class Structure
+| Class / Interface | Role |
+|---|---|
+| `BubbleTea` | Interface with `getDescription()` and `getCost()` |
+| `BubbleTeaDecorator` | Abstract class holding a reference to a wrapped `BubbleTea` |
+| `LatteBase`, `MatchaBase`, `TeaBase` | Concrete base drinks with initial cost and description |
+| `Ice`, `Sugar`, `Tapioca`, `Flavor` | Concrete decorators that add cost and description on top |
+
+#### Example Usage
+```java
+BubbleTea tea = new LatteBase();
+tea = new Tapioca(tea);
+tea = new Sugar(tea);
+tea = new Flavor(tea, "Maduixa");
+tea = new Flavor(tea, "Mango");
+
+System.out.println(tea.getDescription());
+// Latte Bubble Tea + Tapioca + Sugar + Flavor: Maduixa + Flavor: Mango
+
+System.out.println(tea.getCost());
+// 5.50
+```
+
+#### Unit Tests
+- **Full composition test**: Verifies description and cost of a Latte with Tapioca, Sugar and two Flavors
+- **Simple decoration test**: Verifies a Matcha with Ice returns the correct description and cost
+- **No decorators test**: Verifies a plain Tea base returns its base description and cost
+
+---
+
 ## Technologies
 - Java 21
 - JUnit 5
