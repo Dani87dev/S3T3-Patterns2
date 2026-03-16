@@ -1,4 +1,4 @@
-package Observer;
+package observer;
 
 public class StockBrokerAgency implements Observer {
 
