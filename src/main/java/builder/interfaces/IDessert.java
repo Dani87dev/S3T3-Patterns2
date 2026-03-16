@@ -2,9 +2,9 @@ package builder.interfaces;
 
 import builder.model.Menu;
 
-public interface IPostre {
+public interface IDessert {
 
-    IBeguda withDrink(String beguda);
+    IDrink withDrink(String beguda);
     Menu build();
 
 }

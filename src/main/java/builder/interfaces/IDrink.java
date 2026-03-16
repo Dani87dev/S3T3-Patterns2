@@ -2,7 +2,7 @@ package builder.interfaces;
 
 import builder.model.Menu;
 
-public interface IBeguda {
+public interface IDrink {
 
 
     Menu build();

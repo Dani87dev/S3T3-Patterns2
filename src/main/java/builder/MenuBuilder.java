@@ -1,27 +1,27 @@
 package builder;
 
 
-import builder.interfaces.IBeguda;
-import builder.interfaces.IEntrant;
-import builder.interfaces.IPostre;
-import builder.interfaces.IPrincipal;
+import builder.interfaces.IDrink;
+import builder.interfaces.IStarter;
+import builder.interfaces.IDessert;
+import builder.interfaces.IMainCourse;
 import builder.model.Menu;
 
 
 public class MenuBuilder implements
-        IEntrant, IPrincipal, IPostre, IBeguda {
+        IStarter, IMainCourse, IDessert, IDrink {
 
     private Menu menu = new Menu();
 
 
     @Override
-    public IEntrant withStarter(String starter) {
+    public IStarter withStarter(String starter) {
         menu.setStarter(starter);
         return this;
     }
 
     @Override
-    public IPrincipal withMainCourse(String mainCourse){
+    public IMainCourse withMainCourse(String mainCourse){
         menu.setMainCourse(mainCourse);
         return this;
     }
@@ -45,19 +45,19 @@ public class MenuBuilder implements
     }
 
     @Override
-    public IPostre withDessert(String dessert){
+    public IDessert withDessert(String dessert){
         menu.setDessert(dessert);
         return this;
     }
 
     @Override
-    public IPostre withCoffee(String coffee){
+    public IDessert withCoffee(String coffee){
         menu.setCoffee(coffee);
         return this;
     }
 
     @Override
-    public MenuBuilder withDrink(String drink){
+    public IDrink withDrink(String drink){
         menu.setDrink(drink);
         return this;
     }
